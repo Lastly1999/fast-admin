@@ -1,0 +1,72 @@
+.login {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+
+    .login-form {
+        width: 400px;
+        position: absolute;
+        top: 40%;
+        transform: translateY(-20%);
+        left: 10%;
+        .form-title {
+            text-align: center;
+        }
+        .no-pass {
+            font-size: 14px;
+        }
+    }
+    .login-background {
+        background: url("../../assets/login/bg.png");
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    .element1 {
+        right: 0;
+        bottom: 0;
+        position: absolute;
+        z-index: 1;
+    }
+    .element2 {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .element2 {
+        width: 1280px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .element2 {
+        width: 768px;
+    }
+}
+
+.ant-spin-nested-loading {
+    height: 100%;
+    background-color: #fff;
+    z-index: 999;
+}
+
+.ant-spin-container {
+    height: 100%;
+    background-color: #fff;
+}
+
+.ant-spin-nested-loading > div > .ant-spin {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.ant-spin-blur{
+    opacity: 0;
+}
