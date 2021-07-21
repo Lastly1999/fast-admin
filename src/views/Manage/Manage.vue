@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import { mapState } from "vuex"
 export default {
     name: "manage",
     components: {
@@ -25,121 +26,39 @@ export default {
     data() {
         return {
             collapsed: false,
-            menus: [
-                {
-                    key: "1",
-                    title: "工作台",
-                },
-                {
-                    key: "2",
-                    title: "权限管理",
-                    children: [
-                        {
-                            key: "2.1",
-                            title: "基于前端权限",
-                        },
-                        {
-                            key: "2.2",
-                            title: "基于后端权限",
-                        },
-                    ],
-                },
-                {
-                    key: "3",
-                    title: "功能",
-                    children: [
-                        {
-                            key: "3.1",
-                            title: "webScoket",
-                        },
-                        {
-                            key: "3.2",
-                            title: "cavans",
-                        },
-                        {
-                            key: "3.3",
-                            title: "全屏",
-                        },
-                        {
-                            key: "3.4",
-                            title: "动画效果",
-                        },
-                        {
-                            key: "3.5",
-                            title: "右键菜单",
-                        },
-                        {
-                            key: "3.6",
-                            title: "打印功能",
-                        },
-                        {
-                            key: "3.7",
-                            title: "日志",
-                        },
-                        {
-                            key: "3.8",
-                            title: "异常捕获",
-                        },
-                    ],
-                },
-                {
-                    key: "4",
-                    title: "组件",
-                    children: [
-                        {
-                            key: "4.1",
-                            title: "表格",
-                        },
-                        {
-                            key: "4.2",
-                            title: "表单",
-                        },
-                        {
-                            key: "4.3",
-                            title: "动态按钮组",
-                        },
-                        {
-                            key: "4.4",
-                            title: "树形菜单",
-                        },
-                        {
-                            key: "4.5",
-                            title: "二维码",
-                        },
-                        {
-                            key: "4.6",
-                            title: "滑动验证",
-                        },
-                        {
-                            key: "4.7",
-                            title: "图片验证",
-                        },
-                        {
-                            key: "4.8",
-                            title: "MarkDown",
-                            children: [
-                                {
-                                    key: "4.8.1",
-                                    title: "WangEdit",
-                                },
-                                {
-                                    key: "4.8.2",
-                                    title: "QuckEdit",
-                                },
-                            ],
-                        },
-                        {
-                            key: "4.9",
-                            title: "图片裁剪",
-                        },
-                        {
-                            key: "4.10",
-                            title: "拖动窗口",
-                        },
-                    ],
-                },
-            ],
+            menus: [],
         }
+    },
+    computed: {
+        ...mapState({
+            role: (state) => state.role,
+        }),
+    },
+    created() {
+        this.initSystemRoleMenus()
+    },
+    methods: {
+        /**
+         * 系统菜单权限判断 -> 基于前端
+         * @deprecated 系统级id判断 这边是由vuex的前端判断，所以暂时的写死的权限
+         */
+        initSystemRoleMenus() {
+            for (const roleKey in this.role) {
+                if (this.role[roleKey].id === this.role.roleId) {
+                    this.menus = this.role[roleKey].menus
+                }
+            }
+        },
+        /**
+         * 系统菜单权限判断 -> 基于后台
+         * @deprecated 系统级权限判断 基于后台传递的权限菜单以及权限id进行动态配置判断
+         */
+        requestSystemRoleMenus() {
+            this.$store.dispatch("saveUserRoleInfo", {
+                userRoleId: 1,
+                roleMenus: "",
+            })
+        },
     },
 }
 </script>
