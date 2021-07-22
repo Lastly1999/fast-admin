@@ -7,6 +7,9 @@ import { mutations } from "./methods/mutations"
 import { actions } from "./methods/actions"
 import { getters } from "./methods/getters"
 
+// modules
+import roleModule from "./modules/role"
+
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -16,5 +19,7 @@ export default new Vuex.Store({
     getters: { ...getters },
     modules: {
         // this modules es6 ... save modules
+        // 权限模块
+        role: roleModule,
     },
 })

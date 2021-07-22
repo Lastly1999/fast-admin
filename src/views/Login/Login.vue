@@ -28,6 +28,9 @@ export default {
             if (status) {
                 this.$router.push("/manage")
                 notifiMsg("success", `欢迎回来！${data.userName}`)
+                this.$store.dispatch("saveUserRoleInfo", {
+                    userRoleId:data.roleInfo
+                })
                 return
             }
             alertMsg("warning", msg)
