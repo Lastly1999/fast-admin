@@ -1,34 +1,23 @@
 <template>
-    <div>
-         <a-button :type="bType" :style="{'color':bTColor,'background':bBColor}">Primary Button</a-button>
-    </div>
+         <a-button :type="type" :style="{'color':color,'background':type=='link'?'white':bg}"><slot/></a-button>
 </template>
 
 <script>
 export default {
     name: 'FButton',
-    component: {},
     props: {
-        bTColor: {
+        color: {
             type: String,
             default: () => ''
         },
-        bBColor: {
+        bg: {
             type: String,
             default: () => ''
         },
-        bType: {
+        type: {
             type: String,
             default:() => ''
         }
-    },
-    data() {
-        return {
-
-        }
-    },
-    mounted() {
-      if(this.bType=='link') this.bBColor='white'  
     },
     methods: {
         

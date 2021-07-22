@@ -5,7 +5,7 @@
  */
 const role = {
     state: () => ({
-        roleId: 1,
+        roleId: 2,
         // 普通用户
         user: {
             id: 1,
