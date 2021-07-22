@@ -10,6 +10,7 @@
             </a-layout-header>
             <a-layout-content :style="{ margin: '24px 16px', padding: '24px', background: '#fff', minHeight: '280px' }">
                 <router-view />
+                <FButton bTColor='red' bBColor='blue' bType='primary'></FButton>
             </a-layout-content>
         </a-layout>
     </a-layout>
@@ -21,6 +22,7 @@ export default {
     components: {
         // 左侧导航菜单
         TreeMenus: () => import("@/components/TreeMenus/TreeMenus.vue"),
+        FButton: () => import("@/components/FButton/FButton.vue")
     },
     data() {
         return {
