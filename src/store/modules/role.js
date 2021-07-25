@@ -21,8 +21,9 @@ const role = {
             id: 2,
             menus: [
                 {
-                    key: "1",
+                    key: "/manage/home",
                     title: "工作台",
+                    path: "/manage/home",
                 },
                 {
                     key: "2",
@@ -33,8 +34,9 @@ const role = {
                             title: "基于前端权限",
                         },
                         {
-                            key: "2.2",
+                            key: "/manage/backBoneRole",
                             title: "基于后端权限",
+                            path: "/manage/backBoneRole",
                         },
                     ],
                 },

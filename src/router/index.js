@@ -3,27 +3,14 @@ import VueRouter from "vue-router"
 
 import store from "@/store"
 
+// loading progress
 import nprogress from "nprogress"
 import "nprogress/nprogress.css"
 
-Vue.use(VueRouter)
+// routes config
+import { routes } from "@/config/routes.config.js"
 
-const routes = [
-    {
-        path: "/",
-        redirect: "/login",
-    },
-    {
-        path: "/login",
-        name: "login",
-        component: () => import("@/views/Login/Login.vue"),
-    },
-    {
-        path: "/manage",
-        name: "/manage",
-        component: () => import("@/views/Manage/Manage.vue"),
-    },
-]
+Vue.use(VueRouter)
 
 const router = new VueRouter({
     mode: "history",

@@ -26,10 +26,10 @@ export default {
         async submit(valus) {
             const { data, status, msg } = await userLogin(valus)
             if (status) {
-                this.$router.push("/manage")
+                this.$router.push("/manage/home")
                 notifiMsg("success", `欢迎回来！${data.userName}`)
                 this.$store.dispatch("saveUserRoleInfo", {
-                    userRoleId:data.roleInfo
+                    userRoleId: data.roleInfo,
                 })
                 return
             }

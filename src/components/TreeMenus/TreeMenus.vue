@@ -1,15 +1,13 @@
 <template>
-    <div>
-        <a-menu mode="inline" theme="dark" :inline-collapsed="collapsed">
-            <template v-for="item in data">
-                <a-menu-item v-if="!item.children" :key="item.key">
-                    <a-icon type="pie-chart" />
-                    <span>{{ item.title }}</span>
-                </a-menu-item>
-                <sub-menu v-else :key="item.key" :menu-info="item" />
-            </template>
-        </a-menu>
-    </div>
+    <a-menu mode="inline" theme="dark" :inline-collapsed="collapsed" @click="menuClick">
+        <template v-for="item in data">
+            <a-menu-item v-if="!item.children" :key="item.key">
+                <a-icon type="pie-chart" />
+                <span>{{ item.title }}</span>
+            </a-menu-item>
+            <sub-menu v-else :key="item.key" :menu-info="item" />
+        </template>
+    </a-menu>
 </template>
 
 <script>
@@ -57,6 +55,9 @@ export default {
     methods: {
         toggleCollapsed() {
             this.collapsed = !this.collapsed
+        },
+        menuClick(menuItem) {
+            this.$emit("change", menuItem)
         },
     },
 }

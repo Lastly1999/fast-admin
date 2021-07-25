@@ -2,15 +2,22 @@
     <a-layout id="components-layout-demo-custom-trigger">
         <a-layout-sider v-model="collapsed" :trigger="null" collapsible>
             <div class="logo" />
-            <TreeMenus :data="menus" />
+            <!-- 导航菜单 -->
+            <TreeMenus :data="menus" @change="menuChange" />
         </a-layout-sider>
         <a-layout>
-            <a-layout-header style="background: #fff; padding: 0;">
+            <a-layout-header style="background: #fff; padding: 0; height: 50px; line-height: 50px;">
+                <!-- 收展按键 -->
                 <a-icon class="trigger" :type="collapsed ? 'menu-unfold' : 'menu-fold'" @click="() => (collapsed = !collapsed)" />
+                <!-- 面包屑 -->
+                <Breadcrumb />
             </a-layout-header>
-            <a-layout-content :style="{ margin: '24px 16px', padding: '24px', background: '#fff', minHeight: '280px' }">
-                <router-view />
-                <FButton color='red' bg='blue' type='primary'>asd</FButton>
+            <TabsNavs />
+            <a-layout-content>
+                <!-- 为路由设置过渡效果 appear为是否初始化过渡效果 -->
+                <transition appear mode="out-in" enter-active-class="fade-in-left" leave-active-class="fade-out-right">
+                    <router-view />
+                </transition>
             </a-layout-content>
         </a-layout>
     </a-layout>
@@ -23,7 +30,10 @@ export default {
     components: {
         // 左侧导航菜单
         TreeMenus: () => import("@/components/TreeMenus/TreeMenus.vue"),
-        FButton: () => import("@/components/FButton/FButton.vue")
+        // 面包屑
+        Breadcrumb: () => import("@/components/Breadcrumb/Breadcrumb.vue"),
+        // tabs导航
+        TabsNavs: () => import("@/components/TabNavs/TabNavs.vue"),
     },
     data() {
         return {
@@ -61,6 +71,9 @@ export default {
                 roleMenus: "",
             })
         },
+        menuChange(item) {
+            this.$router.push(item.key)
+        },
     },
 }
 </script>
@@ -70,7 +83,7 @@ export default {
 }
 #components-layout-demo-custom-trigger .trigger {
     font-size: 18px;
-    line-height: 64px;
+    line-height: 50px;
     padding: 0 24px;
     cursor: pointer;
     transition: color 0.3s;
