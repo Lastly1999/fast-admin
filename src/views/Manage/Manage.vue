@@ -10,7 +10,17 @@
             </a-layout-header>
             <a-layout-content :style="{ margin: '24px 16px', padding: '24px', background: '#fff', minHeight: '280px' }">
                 <router-view />
-                <FButton color='red' bg='blue' type='primary'>asd</FButton>
+                <FButton
+                 color='red' 
+                 bg='blue' 
+                 type='primary' 
+                 :disabled="false" 
+                 :ghost="false"
+                 shape="round"
+                 size="small"
+                 :loading="true"
+                 icon="search"
+                >asd</FButton>
             </a-layout-content>
         </a-layout>
     </a-layout>
