@@ -18,6 +18,6 @@ export const routes = [
     {
         path: "/manage/FormDesign",
         file: '/FormDesign/FormDesign.vue',
-        title: '表单设计器'
+        title: '屌炸天偷懒神器'
     }
 ]

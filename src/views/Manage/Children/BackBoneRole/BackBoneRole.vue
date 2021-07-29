@@ -2,7 +2,7 @@
     <div>
         <div style="padding: 20px; background: #fff;">
             <h1 style="font-weight: 600; font-size: 20px;">后端权限</h1>
-            <span>后台权限由接口数据动态渲染接管</span>
+            <span>后台权限由接口数据动态渲染接管 </span>
         </div>
     </div>
 </template>

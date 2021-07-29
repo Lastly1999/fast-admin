@@ -5,9 +5,14 @@ import router from "./router"
 import store from "./store"
 import Router from "vue-router"
 
+// font-awesome 自定义组件
+import "font-awesome/css/font-awesome.min.css"
+import FastIcon from "@/components/FastIcon/FastIcon.vue"
+Vue.component("FastIcon", FastIcon)
+
 // kFormDesign表单设计器
-import KFormDesign from 'k-form-design'
-import 'k-form-design/lib/k-form-design.css'
+import KFormDesign from "k-form-design"
+import "k-form-design/lib/k-form-design.css"
 Vue.use(KFormDesign)
 
 // antd

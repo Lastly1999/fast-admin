@@ -11,6 +11,8 @@
                 <a-icon class="trigger" :type="collapsed ? 'menu-unfold' : 'menu-fold'" @click="() => (collapsed = !collapsed)" />
                 <!-- 面包屑 -->
                 <Breadcrumb />
+                <!-- 顶部操作栏 -->
+                <HeaderTools style="float:right;"/>
             </a-layout-header>
             <TabsNavs />
             <a-layout-content>
@@ -34,6 +36,8 @@ export default {
         Breadcrumb: () => import("@/components/Breadcrumb/Breadcrumb.vue"),
         // tabs导航
         TabsNavs: () => import("@/components/TabNavs/TabNavs.vue"),
+        // 顶部工具操作栏
+        HeaderTools: () => import("@/components/HeaderTools/HeaderTools.vue"),
     },
     data() {
         return {
