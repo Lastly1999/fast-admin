@@ -1,36 +1,23 @@
+/**
+ * 后台路由配置
+ * @date 2021年7月29日17:19:06
+ * @deprecated 注意!! 这边的file路径名称是为了拼接 src/views/manage/children 文件夹下的视图模板
+ * @author lastly
+ */
 export const routes = [
     {
-        path: "/",
-        redirect: "/login",
+        path: "/manage/home",
+        file: '/Home/Home.vue',
+        title: '工作台'
     },
     {
-        path: "/login",
-        name: "login",
-        component: () => import("@/views/Login/Login.vue"),
+        path: "/manage/backBoneRole",
+        file: '/BackBoneRole/BackBoneRole.vue',
+        title: '基于后端权限'
     },
     {
-        path: "/manage",
-        name: "/manage",
-        component: () => import("@/views/Manage/Manage.vue"),
-        meta: {
-            title: "首页",
-        },
-        children: [
-            {
-                path: "/manage/home",
-                name: "/manage/home",
-                component: () => import("@/views/Manage/Children/Home/Home.vue"),
-                meta: {
-                    title: "工作台",
-                },
-            },
-            {
-                path: "/manage/backBoneRole",
-                component: () => import("@/views/Manage/Children/BackBoneRole/BackBoneRole.vue"),
-                meta: {
-                    title: "基于后端权限",
-                },
-            },
-        ],
-    },
+        path: "/manage/FormDesign",
+        file: '/FormDesign/FormDesign.vue',
+        title: '表单设计器'
+    }
 ]

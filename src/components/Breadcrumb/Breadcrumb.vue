@@ -33,7 +33,6 @@ export default {
             deep: true,
             handler() {
                 this.breadList = this.$route.matched
-                console.log(this.$route.matched)
             },
         },
     },

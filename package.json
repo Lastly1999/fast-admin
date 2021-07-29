@@ -12,6 +12,7 @@
         "ant-design-vue": "^1.7.6",
         "axios": "^0.21.1",
         "core-js": "^3.6.5",
+        "k-form-design": "^3.7.91",
         "nprogress": "^0.2.0",
         "vue": "^2.6.11",
         "vue-router": "^3.2.0",

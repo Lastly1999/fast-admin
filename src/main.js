@@ -5,6 +5,11 @@ import router from "./router"
 import store from "./store"
 import Router from "vue-router"
 
+// kFormDesign表单设计器
+import KFormDesign from 'k-form-design'
+import 'k-form-design/lib/k-form-design.css'
+Vue.use(KFormDesign)
+
 // antd
 import Antd from "ant-design-vue"
 import "ant-design-vue/dist/antd.less"

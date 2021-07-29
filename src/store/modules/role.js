@@ -134,6 +134,11 @@ const role = {
                         },
                     ],
                 },
+                {
+                    key: "/manage/formDesign",
+                    title: "表单设计器",
+                    path: "/manage/formDesign",
+                },
             ],
         },
         // 基于后台的权限菜单配置
@@ -147,7 +152,6 @@ const role = {
             state.roleStore = {
                 ...data,
             }
-            console.log(state)
         },
     },
     getters: {},
